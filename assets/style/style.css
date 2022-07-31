@@ -3,7 +3,7 @@ body {
   box-sizing: border-box;
   font-family: Montserrat, sans-serif;
   color: #414040;
-  background-image: url("img/scattered-forcefields.svg");
+  background-image: url("../img/scattered-forcefields.svg");
 }
 
 a {
@@ -225,7 +225,7 @@ h1 {
   right: 5px;
   border: none;
   background-color: transparent;
-  background-image: url("img/cross-23.svg");
+  background-image: url("../img/cross-23.svg");
   background-repeat: no-repeat;
   width: 40px;
   height: 40px;
@@ -281,4 +281,4 @@ h1 {
   }
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=style.css.map */
