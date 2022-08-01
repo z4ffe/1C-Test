@@ -1,63 +1,6 @@
 import {tests} from "/assets/script/questions.js";
 
-// DOM variables
-
-const question = document.querySelector('#question')
-const a1 = document.querySelector('#a1')
-const a2 = document.querySelector('#a2')
-const a3 = document.querySelector('#a3')
-const a4 = document.querySelector('#a4')
-const a1l = document.querySelector('#a1l')
-const a2l = document.querySelector('#a2l')
-const a3l = document.querySelector('#a3l')
-const a4l = document.querySelector('#a4l')
-const answerBtn = document.querySelector('#answer-btn')
-const rightStats = document.querySelector('.right')
-const wrongStats = document.querySelector('.wrong')
-const percentStats = document.querySelector('.percent')
-const label = document.querySelectorAll('label')
-const navBtn = document.querySelectorAll('.next-question')
-const qstCounter = document.querySelector('#qst-counter')
-const popupCloseBtn = document.querySelector('#popup-close')
-const popup = document.querySelector('.popup')
-
-// logic variables
-
-let index = 0;
-let arrRight = []
-let arrWrong = []
-
-// ----------------------------
-
-function timeoutRefresh(logic, labelIndex, right) {
-	if (logic === true) {
-		index++
-		arrRight.push(index)
-		let timerId = setInterval(() => {
-			label[labelIndex].classList.toggle('greenColor')
-		}, 500)
-		setTimeout(() => {
-			clearInterval(timerId)
-			label[labelIndex].classList.remove('greenColor')
-			new Test1C(tests[index]).start()
-		}, 3200)
-	} else {
-		index++
-		arrWrong.push(index)
-		label[labelIndex].style.color = 'red'
-		setTimeout(() => {
-			label[right - 1].style.color = 'green'
-		}, 1500)
-		setTimeout(() => {
-			label[labelIndex].style.color = ''
-			label[right - 1].style.color = ''
-			new Test1C(tests[index]).start()
-		}, 3500)
-	}
-
-}
-
-// ---------------------------
+// ----------------------------------------------------- Constructor Class -----------------------------------------------
 
 class Test1C {
 	constructor(qst) {
@@ -105,42 +48,67 @@ class Test1C {
 	}
 }
 
-// Question list --------------------------------
 
-/*const tests = [
+// ----------------------------------------------------- DOM variables -----------------------------------------------
 
-	['При работе с разделом "Кадры" программы "1С:Зарплата и управление персоналом" имеются возможности:',
-		'Вести кадровый учет сотрудников, учет штатного расписания, воинский учет',
-		'Вести кадровый учет сотрудников',
-		'Вести кадровый учет сотрудников и учет штатного расписания',
-		'Вести кадровый учет и расчет зарплаты',
-		3],
+const question = document.querySelector('#question')
+const a1 = document.querySelector('#a1')
+const a2 = document.querySelector('#a2')
+const a3 = document.querySelector('#a3')
+const a4 = document.querySelector('#a4')
+const a1l = document.querySelector('#a1l')
+const a2l = document.querySelector('#a2l')
+const a3l = document.querySelector('#a3l')
+const a4l = document.querySelector('#a4l')
+const answerBtn = document.querySelector('#answer-btn')
+const rightStats = document.querySelector('.right')
+const wrongStats = document.querySelector('.wrong')
+const percentStats = document.querySelector('.percent')
+const label = document.querySelectorAll('label')
+const navBtn = document.querySelectorAll('.next-question')
+const qstCounter = document.querySelector('#qst-counter')
+const popupCloseBtn = document.querySelector('#popup-close')
+const popup = document.querySelector('.popup')
 
-	['При работе с разделом "Зарплата" программы "1С:Зарплата и управление персоналом" имеются возможности:',
-		'Проводить различные виды начислений и удержаний, а также регистрировать выплату зарплаты',
-		'Проводить различные виды начислений и удержаний, а также регистрировать отражение зарплаты в бухучете ',
-		'Проводить различные виды начислений и удержаний, а также регистрировать выплату зарплаты и отражение зарплаты в бухучете',
-		'Проводить различные виды начислений и удержаний, вводить документы по учету времени, а также регистрировать отражение зарплаты в бухучете',
-		4],
-
-	['При работе с разделом "Выплаты" программы "1С:Зарплата и управление персоналом" имеются возможности:',
-		'Вводить ведомости на выплату зарплаты',
-		'Вводить ведомости на выплату зарплаты, а также регистрировать незарплатные доходы ',
-		'Вводить ведомости на выплату зарплаты, а также регистрировать отражение зарплаты в бухучете',
-		'Вводить ведомости на выплату зарплаты, а также регистрировать уплату страховых взносов ',
-		4],
-
-	['При работе с разделом "Налоги и взносы" программы "1С:Зарплата и управление персоналом" имеются возможности:',
-		'Проводить ежемесячный расчет налогов и взносов с выплат в пользу работников',
-		'Вводить заявления на вычеты, формировать справки 2-НДФЛ, отражать возврат и перерасчет НДФЛ',
-		'Регистрировать суммы перечисленного НДФЛ и взносов в ФСС',
-		'Верны все вышеперечисленные варианты ',
-		4],
-
-]*/
+// ----------------------------------------------------- Logic variables -----------------------------------------------
 
 
-// Event listeners  ------------------------------------
+let index = 0;
+let arrRight = []
+let arrWrong = []
+
+// ----------------------------------------------------- Counter -----------------------------------------------
+
+function timeoutRefresh(logic, labelIndex, right) {
+	if (logic === true) {
+		index++
+		arrRight.push(index)
+		let timerId = setInterval(() => {
+			label[labelIndex].classList.toggle('greenColor')
+		}, 500)
+		setTimeout(() => {
+			clearInterval(timerId)
+			label[labelIndex].classList.remove('greenColor')
+			new Test1C(tests[index]).start()
+		}, 3200)
+	} else {
+		index++
+		arrWrong.push(index)
+		label[labelIndex].style.color = 'red'
+		setTimeout(() => {
+			label[right - 1].style.color = 'green'
+		}, 1500)
+		setTimeout(() => {
+			label[labelIndex].style.color = ''
+			label[right - 1].style.color = ''
+			new Test1C(tests[index]).start()
+		}, 3500)
+	}
+
+}
+
+
+// ----------------------------------------------------- Event listeners -----------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
 	index = 0;
